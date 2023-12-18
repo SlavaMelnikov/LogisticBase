@@ -88,9 +88,9 @@ public class Truck implements Runnable {
     @Override
     public void run() {
         while (true) {
-            currentTruckState.doOperation(this);            // StartTruckState -> QueueTruckState -> LoadTruckState -> FinishTruckState
-            if (currentTruckState instanceof FinishTruckState) {  //                                     ↘                 ↗
-                currentTruckState.doOperation(this);        //                                       UnloadTruckState
+            currentTruckState.doOperation(this);                    // StartTruckState -> QueueTruckState -> LoadTruckState -> FinishTruckState
+            if (currentTruckState instanceof FinishTruckState) {          //                                     ↘                 ↗
+                currentTruckState.doOperation(this);                //                                       UnloadTruckState
                 break;
             }
         }
